@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 
 namespace BookStore
 {
+    /// <summary>
+    /// Entry Program
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)
