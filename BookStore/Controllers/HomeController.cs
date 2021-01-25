@@ -16,5 +16,10 @@ namespace BookStore.Controllers
         {
             return View();
         }
+        public ViewResult ContactUs()
+        {
+            return View();
+        }
+
     }
 }
