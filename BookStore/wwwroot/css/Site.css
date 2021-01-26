@@ -1,8 +1,16 @@
 ﻿@import url('file:///C:\Working\Bookstore\BookStore\wwwroot\css\Site.css');
 body {
-    
+    background-color:aqua;
 }
-.logo {
-    width: 100px;
-    height: 100px
+section.jumbotron.text-center {
+    background-color:papayawhip
 }
+.footer{
+    position:relative;
+    top:auto;
+    width:100%;
+    white-space:nowrap;
+    bottom:0px;
+    line-height:60px;
+}
+
