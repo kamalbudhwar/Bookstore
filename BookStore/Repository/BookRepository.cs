@@ -23,12 +23,12 @@ namespace BookStore.Repository
         private List<BookModel> DataSouce()
         {
             return new List<BookModel>(){
-                new BookModel(){Id=1,Title="Onec Upon a Time", Author="Simon",Description="A story of india before 1947,about people,and Democracy" },
-                new BookModel(){Id=2,Title="MVC", Author="Bajinder" ,Description="This will teach you the basic skill of dotnet core MVC application" },
-                new BookModel(){Id=3,Title="Java", Author="Kamal",Description="Book to learn coding from beginners to advanced level learners" },
-                new BookModel(){Id=4,Title="C#", Author="Sandhu",Description="Book to learn C# coding from beginners to advanced level learners" },
-                new BookModel(){Id=5,Title="Reaction", Author="Nitish", Description="Explains every action has recation in nature" },
-                new BookModel(){Id=6,Title="The Times of India", Author="Kamal", Description="20th centuary India,people,and politics" }
+                new BookModel(){Id=1,Title="Onec Upon a Time", Author="Simon",Description="A story of india before 1947,about people,and Democracy",Category="History",Language="Hindi",TotalPages=1965},
+                new BookModel(){Id=2,Title="MVC", Author="Bajinder" ,Description="This will teach you the basic skill of dotnet core MVC application",Category="Web Development",Language="English",TotalPages=165 },
+                new BookModel(){Id=3,Title="Java", Author="Kamal",Description="Book to learn coding from beginners to advanced level learners" ,Category="Core Java",Language="English",TotalPages=365},
+                new BookModel(){Id=4,Title="C#", Author="Sandhu",Description="Book to learn C# coding from beginners to advanced level learners",Category="Programming",Language="English",TotalPages=1065 },
+                new BookModel(){Id=5,Title="Reaction", Author="Nitish", Description="Explains every action has recation in nature",Category="Physics",Language="English",TotalPages=345 },
+                new BookModel(){Id=6,Title="The Times of India", Author="Kamal", Description="20th centuary India,people,and politics" ,Category="History",Language="Hindi",TotalPages=765}
             };
         }
 

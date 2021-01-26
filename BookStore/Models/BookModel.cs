@@ -11,5 +11,8 @@ namespace BookStore.Models
         public String Title { get; set; }
         public String Author { get; set; }
         public String Description { get; set; }
+        public String Category { get; set; }
+        public int TotalPages { get; set; }
+        public String Language { get; set; }
     }
 }
