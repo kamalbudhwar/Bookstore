@@ -1,4 +1,5 @@
-﻿using BookStore.Models;
+﻿using BookStore.Data;
+using BookStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,30 @@ namespace BookStore.Repository
 {
     public class BookRepository
     {
+        private readonly BookStoreContext _context = null;
+        public BookRepository(BookStoreContext context)
+        {
+            _context = context;
+        }
+        public int AddNewBook(BookModel model)
+        {
+            var newBook = new Books()
+            {
+                Author = model.Author,
+                Title = model.Title,
+                Description = model.Description,
+                Category = model.Category,
+                TotalPages = model.TotalPages,
+                Language = model.Language,
+                CreatedOn = DateTime.UtcNow,
+                UpdatedOn = DateTime.UtcNow
+
+            };
+            _context.Add(newBook);
+            _context.SaveChanges();
+            return newBook.Id;
+
+        }
         public List<BookModel> GetAllBooks()
         {
             return DataSouce();
@@ -20,7 +45,7 @@ namespace BookStore.Repository
         {
             return DataSouce().Where(x=>x.Title == title || x.Author == author).ToList();
         }
-        private List<BookModel> DataSouce()
+        private  static List<BookModel> DataSouce()
         {
             return new List<BookModel>(){
                 new BookModel(){Id=1,Title="Onec Upon a Time", Author="Simon",Description="A story of india before 1947,about people,and Democracy",Category="History",Language="Hindi",TotalPages=1965},

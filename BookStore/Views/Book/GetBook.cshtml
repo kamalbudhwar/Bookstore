@@ -1,5 +1,4 @@
-﻿@using BookStore.Models;
-@model BookModel;
+﻿@*@model BookModel;*@
 
 
 <div class="container">
@@ -37,18 +36,18 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>@Model.Title</h1>
+                    <h1>@Model.book.Title</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <span class="label label-primary">By:</span>
-                    <span class="text-monospace">AuthorName: @Model.Author</span>
+                    <span class="text-monospace">AuthorName: @Model.book.Author</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p class="description">@Model.Description</p>
+                    <p class="description">@Model.book.Description</p>
                 </div>
             </div>
             <div class="row">
@@ -60,22 +59,22 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <span class="font-weight-bold">Category</span>
-                    @Model.Category
+                    @Model.book.Category
                 </li>
                 <li class="list-group-item">
                     <span class="font-weight-bold">Total Pages</span>
-                    @Model.TotalPages
+                    @Model.book.TotalPages
                 </li>
                 <li class="list-group-item">
                     <span class="font-weight-bold">Language</span>
-                    @Model.Language
+                    @Model.book.Language
                 </li>
 
             </ul>
         </div>
     </div>
     <hr/>
-    <div class="py-5 bg-light">
+    <div class="py-5 bg-light" id="SimilarBooks">
         <h3>Similar Books</h3>
         <div class="row">
             @for(var i = 0; i < 5; i++)
