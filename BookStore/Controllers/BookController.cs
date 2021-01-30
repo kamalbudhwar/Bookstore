@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
@@ -17,19 +18,20 @@ namespace BookStore.Controllers
         {
             _bookRepository = bookRepository;
         }
-        public ViewResult GetAllBooks()
+        public async Task<ViewResult> GetAllBooks()
         {
             Title = "Get All Books";
-            var data = _bookRepository.GetAllBooks();
+            var data =await _bookRepository.GetAllBooks();
             return View(data);
         }
-        public ViewResult GetBook(int id)
+        public async Task<ViewResult> GetBook(int id)
         {
             Title = "Get Book";
-            dynamic data = new ExpandoObject();
-            data.book = _bookRepository.GetBook(id);
-            data.Name = "Kamal";
-            return View(data);
+            //dynamic data = new ExpandoObject();
+            //data.book = _bookRepository.GetBook(id);
+            //data.Name = "Kamal";
+            var book = await _bookRepository.GetBook(id);
+            return View(book);
         }
         public List<BookModel> SearchBooks(String bookName, String authorName)
         {
@@ -44,13 +46,17 @@ namespace BookStore.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddNewBook(BookModel bookModel)
+        public async Task<IActionResult> AddNewBook(BookModel bookModel)
         {
-            int id = _bookRepository.AddNewBook(bookModel);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true ,bookId=id});
+                int id = await _bookRepository.AddNewBook(bookModel);
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
+                }
             }
+            ModelState.AddModelError("", "Custom msg from model");
             return View();
         }
         public ViewResult Motivation()
