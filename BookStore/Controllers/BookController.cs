@@ -1,9 +1,11 @@
 ﻿using BookStore.Models;
 using BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.Controllers
@@ -14,9 +16,11 @@ namespace BookStore.Controllers
         public String Title { get; set; }
 
         private readonly BookRepository _bookRepository = null;
-        public BookController(BookRepository bookRepository)
+        private readonly LanguageRepository _languageRepository = null;
+        public BookController(BookRepository bookRepository,LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
+            _languageRepository = languageRepository;
         }
         public async Task<ViewResult> GetAllBooks()
         {
@@ -27,23 +31,22 @@ namespace BookStore.Controllers
         public async Task<ViewResult> GetBook(int id)
         {
             Title = "Get Book";
-            //dynamic data = new ExpandoObject();
-            //data.book = _bookRepository.GetBook(id);
-            //data.Name = "Kamal";
             var book = await _bookRepository.GetBook(id);
             return View(book);
         }
         public List<BookModel> SearchBooks(String bookName, String authorName)
         {
-            return _bookRepository.SearchBooks(bookName, authorName);
+           return null;
 
         }
 
-        public ViewResult AddNewBook(bool isSuccess = false,int bookId=0)
+        public async Task<ViewResult> AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            var model = new BookModel();
+            ViewBag.languages = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name");
             ViewBag.isSuccess = isSuccess;
             ViewBag.bookId = bookId;
-            return View();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
@@ -57,7 +60,14 @@ namespace BookStore.Controllers
                 }
             }
             ModelState.AddModelError("", "Custom msg from model");
+             ViewBag.languages =new SelectList(await _languageRepository.GetLanguages(),"Id","Name");
             return View();
+        }
+
+        private static List<LanguageModel> GetLanguages()
+        {
+            return null;
+            
         }
         public ViewResult Motivation()
         {

@@ -31,8 +31,10 @@
             <span asp-validation-for="Category" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Language"></label>
-            <input asp-for="Language" class="form-control" />
+            <label asp-for="LanguageId"></label>
+            <select asp-for="LanguageId" class="form-control" asp-items="@ViewBag.languages">
+                <option value="">Please enter the written Language</option>
+            </select>
             <span asp-validation-for="Language" class="text-danger"></span>
         </div>
         <div class="form-group">
