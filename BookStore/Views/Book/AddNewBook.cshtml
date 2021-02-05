@@ -2,9 +2,14 @@
 
 <div class="container">
     <h3>Add New Book</h3>
-    <form method="post" asp-action="AddNewBook" asp-controller="Book">
-     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @if (ViewBag.isSuccess==true)
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" id="myLoader" style="display:none" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <form method="post" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure" data-ajax-loading="#myLoader" asp-action="AddNewBook" asp-controller="Book">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (ViewBag.isSuccess == true)
         {
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Congratulations!</strong> You have added the book detail successfuly.<br />
@@ -53,4 +58,16 @@
     </form>
 </div>
 
-
+@section script{
+    <script>
+        function myComplete(){
+            alert("I am from Complete");
+        }
+        function mySuccess() {
+            alert("I am from Success");
+        }
+        function myFailure() {
+            alert("I am from Failure");
+        }
+    </script>
+ }
