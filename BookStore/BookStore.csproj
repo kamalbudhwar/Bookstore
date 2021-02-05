@@ -16,6 +16,14 @@
     <Content Remove="Views\Home\Index2.cshtml" />
     <Content Remove="Views\Home\Index3.cshtml" />
     <Content Remove="Views\Home\Index4.cshtml" />
+    <Content Remove="wwwroot\books\cover\288ac50d-d47a-48fd-b32f-b92d56810d1eb4.jpg" />
+    <Content Remove="wwwroot\books\cover\2ac929b3-dafe-4a7a-9932-3f93edfb0af5b4.jpg" />
+    <Content Remove="wwwroot\books\cover\3b46e012-19a7-49ee-b5b9-ce6bd99c6dbab4.jpg" />
+    <Content Remove="wwwroot\books\cover\64029b56-48bc-4b43-95c7-5421eaed2652b1.jpg" />
+    <Content Remove="wwwroot\books\cover\826d7920-7709-4e8c-8a63-7419ad52b3b5b4.jpg" />
+    <Content Remove="wwwroot\books\cover\a836c156-37d9-4f3f-8fd5-83242ea51b58b4.jpg" />
+    <Content Remove="wwwroot\books\cover\af764e38-7b4e-4cc4-927e-33c17d672382b2.webp" />
+    <Content Remove="wwwroot\books\cover\f291fca9-ee03-437d-a467-422f105aba47b3.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\books\cover\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

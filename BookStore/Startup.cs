@@ -23,14 +23,14 @@ namespace BookStore
             services.AddDbContext<BookStoreContext>(options=>options.UseSqlServer("Server=.;Database=Bookstore;Integrated Security=True;Trusted_Connection=True;MultipleActiveResultSets=true;"));
 
             services.AddControllersWithViews();
-# if DEBUG
+
             services.AddRazorPages().AddRazorRuntimeCompilation();
             //Uncomment the below code to disable the client side validation.
             //.AddViewOptions(option =>
             //{
             //    option.HtmlHelperOptions.ClientValidationEnabled = false;
             //});
-#endif
+
             services.AddScoped<BookRepository, BookRepository>();
             services.AddScoped<LanguageRepository, LanguageRepository>();
 

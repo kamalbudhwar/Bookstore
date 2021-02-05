@@ -7,7 +7,7 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <form method="post" data-ajax="true" data-ajax-complete="myComplete" data-ajax-success="mySuccess" data-ajax-failure="myFailure" data-ajax-loading="#myLoader" asp-action="AddNewBook" asp-controller="Book">
+    <form method="post" enctype="multipart/form-data" data-ajax="true"  data-ajax-loading="#myLoader" asp-action="AddNewBook" asp-controller="Book">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (ViewBag.isSuccess == true)
         {
@@ -53,12 +53,20 @@
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <div class="form-group">
+            <label asp-for="CoverPhoto"></label>
+            <div class="custom-file">
+                <input asp-for="CoverPhoto" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+        <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Add Book" />
         </div>
     </form>
 </div>
 
-@section script{
+@*@section script{
     <script>
         function myComplete(){
             alert("I am from Complete");
@@ -70,4 +78,4 @@
             alert("I am from Failure");
         }
     </script>
- }
+ }*@
