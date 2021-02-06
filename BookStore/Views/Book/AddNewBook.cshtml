@@ -7,7 +7,7 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <form method="post" enctype="multipart/form-data" data-ajax="true"  data-ajax-loading="#myLoader" asp-action="AddNewBook" asp-controller="Book">
+    <form method="post" enctype="multipart/form-data" data-ajax="true" data-ajax-loading="#myLoader" asp-action="AddNewBook" asp-controller="Book">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (ViewBag.isSuccess == true)
         {
@@ -59,6 +59,14 @@
                 <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
             <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="GalleryFiles"></label>
+            <div class="custom-file">
+                <input asp-for="GalleryFiles" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="GalleryFiles" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Add Book" />
