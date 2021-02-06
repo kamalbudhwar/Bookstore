@@ -28,8 +28,18 @@ namespace BookStore.Repository
                 CreatedOn = DateTime.UtcNow,
                 UpdatedOn = DateTime.UtcNow,
                 CoverImageUrl=model.CoverImageUrl
-
             };
+
+           newBook.BookGalleries = new List<BookGallery>();
+            foreach(var file in model.Gallery)
+            {
+                newBook.BookGalleries.Add(new BookGallery()
+                {
+                    Name = file.Name,
+                    Url = file.Url,
+
+                });
+            }
             await _context.AddAsync(newBook);
             await _context.SaveChangesAsync();
             return newBook.Id;
@@ -75,10 +85,10 @@ namespace BookStore.Repository
                 Id = book.Id
             }).FirstOrDefaultAsync();
         }
-        public List<BookModel> SearchBooks(String title,String author)
-         {
-            return null;
-        }
+        //public List<BookModel> SearchBooks(String title,String author)
+        // {
+        //    return null;
+        //}
         
 
     }

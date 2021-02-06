@@ -39,11 +39,10 @@ namespace BookStore.Controllers
             var book = await _bookRepository.GetBook(id);
             return View(book);
         }
-        public List<BookModel> SearchBooks(String bookName, String authorName)
-        {
-           return null;
-
-        }
+        //public List<BookModel> SearchBooks(String bookName, String authorName)
+        //{
+        //   return null;
+        //}
 
         public async Task<ViewResult> AddNewBook(bool isSuccess = false, int bookId = 0)
         {
@@ -58,14 +57,10 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (bookModel.CoverPhoto != null)
+                
+                if (bookModel.GalleryFiles != null)
                 {
-                    String folder = "book/cover/";
-                    bookModel.CoverImageUrl = await UploadImage(folder,bookModel.CoverPhoto);
-                }
-                if (bookModel.GalleryFiles!= null)
-                {
-                    String folder = "book/gallery/";
+                     String folder = "books/gallery/";
                     bookModel.Gallery = new List<GalleryModel>();
                     foreach (var file in bookModel.GalleryFiles)
                     {
@@ -78,6 +73,12 @@ namespace BookStore.Controllers
 
                     }
                 }
+                if (bookModel.CoverPhoto != null)
+                {
+                    String folder = "books/cover/";
+                    bookModel.CoverImageUrl = await UploadImage(folder, bookModel.CoverPhoto);
+                }
+
                 int id = await _bookRepository.AddNewBook(bookModel);
                 if (id > 0)
                 {
@@ -89,11 +90,19 @@ namespace BookStore.Controllers
             return View();
         }
 
-        private async Task<String> UploadImage(String folderPath,IFormFile File)
+        private async Task<String> UploadImage(String folderPath,IFormFile file)
         {
-            folderPath += Guid.NewGuid().ToString()+"-"+ File.FileName;
+            folderPath += Guid.NewGuid().ToString()+"-"+ file.FileName;
             string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folderPath);
-            await File.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+            try
+            {
+                await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace);
+                throw;
+            }
             return "/" + folderPath;
         }
 

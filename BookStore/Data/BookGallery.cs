@@ -11,5 +11,6 @@ namespace BookStore.Data
         public int BookId { get; set; }
         public String Name { get; set; }
         public String Url { get; set; }
+        public Books Book { get; set; }
     }
 }

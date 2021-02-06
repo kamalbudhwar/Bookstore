@@ -20,7 +20,7 @@ namespace BookStore.Data
 
         public String CoverImageUrl { get; set;}
 
-        public ICollection<BookGallery> bookGalleries { get; set; }
+        public ICollection<BookGallery> BookGalleries { get; set; }
 
 
     }
