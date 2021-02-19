@@ -33,13 +33,18 @@ namespace BookStore.Models
         [Display(Name ="Cover Photo")]
         [Required(ErrorMessage ="Choose the Cover photo of your book")]
         public IFormFile CoverPhoto { get; set;}
+        public String CoverImageUrl { get; set; }
 
         [Display(Name = "Gallery Photo")]
         [Required(ErrorMessage = "Choose the Gallery photos for your book")]
         public IFormFileCollection GalleryFiles { get; set; }
-        public String CoverImageUrl { get; set; }
-
         public List<GalleryModel> Gallery { get; set; }
+
+
+        [Display(Name = "Upload your book in pdf format")]
+        [Required]
+        public IFormFile BookPdf { get; set; }
+        public String BookPdfUrl { get; set; }
 
     }
 }

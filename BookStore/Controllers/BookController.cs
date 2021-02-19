@@ -1,5 +1,7 @@
 ﻿using BookStore.Models;
 using BookStore.Repository;
+using BookStore.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +20,17 @@ namespace BookStore.Controllers
         [ViewData]
         public String Title { get; set; }
 
-        private readonly BookRepository _bookRepository = null;
-        private readonly LanguageRepository _languageRepository = null;
+        private readonly IBookRepository _bookRepository = null;
+        private readonly ILanguageRepository _languageRepository = null;
         private readonly IWebHostEnvironment _webHostEnvironment;
-       public BookController(BookRepository bookRepository,LanguageRepository languageRepository,IWebHostEnvironment webHostEnvironment)
+        private readonly IUserService _userService;
+
+        public BookController(IBookRepository bookRepository,ILanguageRepository languageRepository,IWebHostEnvironment webHostEnvironment,IUserService userService)
         {
             _bookRepository = bookRepository;
             _languageRepository = languageRepository;
             _webHostEnvironment = webHostEnvironment;
+            _userService = userService;
         }
         public async Task<ViewResult> GetAllBooks()
         {
@@ -43,11 +48,12 @@ namespace BookStore.Controllers
         //{
         //   return null;
         //}
-
-        public async Task<ViewResult> AddNewBook(bool isSuccess = false, int bookId = 0)
+       
+        [Authorize]
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
             var model = new BookModel();
-            ViewBag.languages = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name");
+          //  ViewBag.languages = new SelectList(await _languageRepository.GetLanguages(), "Id", "Name");
             ViewBag.isSuccess = isSuccess;
             ViewBag.bookId = bookId;
             return View(model);
@@ -78,6 +84,11 @@ namespace BookStore.Controllers
                     String folder = "books/cover/";
                     bookModel.CoverImageUrl = await UploadImage(folder, bookModel.CoverPhoto);
                 }
+                if (bookModel.BookPdf != null)
+                {
+                    String folder = "books/pdf/";
+                    bookModel.BookPdfUrl = await UploadImage(folder, bookModel.BookPdf);
+                }
 
                 int id = await _bookRepository.AddNewBook(bookModel);
                 if (id > 0)
@@ -85,8 +96,7 @@ namespace BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
                 }
             }
-            ModelState.AddModelError("", "Custom msg from model");
-             ViewBag.languages =new SelectList(await _languageRepository.GetLanguages(),"Id","Name");
+             //ViewBag.languages =new SelectList(await _languageRepository.GetLanguages(),"Id","Name");
             return View();
         }
 

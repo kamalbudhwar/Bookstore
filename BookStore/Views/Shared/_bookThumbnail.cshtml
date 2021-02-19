@@ -1,0 +1,26 @@
+﻿@model BookModel;
+<div class="card mb-4 shadow-sm">
+    <img alt="sample" class="card-img-top" height="225" width="100" src="@(string.IsNullOrEmpty(Model.CoverImageUrl)?"images/book.jpg":Model.CoverImageUrl)" />
+    <div class="card-body">
+        <div class="card-title">@(string.IsNullOrEmpty(Model.Title)?"Sample Title":Model.Title)</div>
+        <p class="card-text">@(string.IsNullOrEmpty(Model.Description)?"Sample Description":Model.Description)</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a asp-controller="Book" asp-action="GetBook" asp-route-Id="@Model.Id" asp-route-nameOfBook="@Model.Title" asp-fragment="SimilarBooks" class="btn btn-sm btn-outline-secondary">View Details</a>
+            </div>
+            <small class="text-muted">By @(string.IsNullOrEmpty(Model.Author)?"Sample Author":Model.Author)</small>
+        </div>
+    </div>
+</div>
+@*<div class="card mb-4 shadow-sm">
+    <img class="card-img-top" height="225" width="100%" src="~/images/books-to-read-2021-Pinterest.jpg" />
+    <div class="card-body">
+        <p class="card-text">The books of 2021 that everyone must read. Hurry up 20% off!!!!!Clik Now on this image to buy</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a href="#" class="btn btn-sm btn-outline-secondary">View Details</a>
+            </div>
+            <small class="text-muted">By Nikole</small>
+        </div>
+    </div>
+</div>*@

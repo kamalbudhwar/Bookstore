@@ -16,31 +16,97 @@
     <Content Remove="Views\Home\Index2.cshtml" />
     <Content Remove="Views\Home\Index3.cshtml" />
     <Content Remove="Views\Home\Index4.cshtml" />
+    <Content Remove="wwwroot\books\cover\0c480301-434e-437f-a943-07bfd867c993-living.jpg" />
+    <Content Remove="wwwroot\books\cover\0d75948b-be3d-4471-bf40-19793e08d5c9-thinkjava.jpg" />
+    <Content Remove="wwwroot\books\cover\16c49c38-77bf-449f-9a80-ab85f003fd16-living.jpg" />
     <Content Remove="wwwroot\books\cover\288ac50d-d47a-48fd-b32f-b92d56810d1eb4.jpg" />
     <Content Remove="wwwroot\books\cover\2ac929b3-dafe-4a7a-9932-3f93edfb0af5b4.jpg" />
     <Content Remove="wwwroot\books\cover\3b46e012-19a7-49ee-b5b9-ce6bd99c6dbab4.jpg" />
+    <Content Remove="wwwroot\books\cover\4250fd63-ebcc-4ace-ae7e-921120311601-living.jpg" />
+    <Content Remove="wwwroot\books\cover\42b2f675-5f84-4846-b846-354a474aa4e2-b1.jpg" />
+    <Content Remove="wwwroot\books\cover\4877df8e-658c-409c-91b7-cca8b5bb3fc2-living.jpg" />
     <Content Remove="wwwroot\books\cover\64029b56-48bc-4b43-95c7-5421eaed2652b1.jpg" />
+    <Content Remove="wwwroot\books\cover\6c5fceb7-241d-4725-9252-591c9b75b77c-thinkjava.jpg" />
     <Content Remove="wwwroot\books\cover\826d7920-7709-4e8c-8a63-7419ad52b3b5b4.jpg" />
+    <Content Remove="wwwroot\books\cover\a7623708-bc48-461d-bb86-a65c74227358-living.jpg" />
     <Content Remove="wwwroot\books\cover\a836c156-37d9-4f3f-8fd5-83242ea51b58b4.jpg" />
     <Content Remove="wwwroot\books\cover\af764e38-7b4e-4cc4-927e-33c17d672382b2.webp" />
+    <Content Remove="wwwroot\books\cover\b2017281-d450-4d7a-8451-15e4f0ff7b4a-living.jpg" />
+    <Content Remove="wwwroot\books\cover\b610278f-0757-4643-b26c-59fe4b8ec7eb-b4.jpg" />
+    <Content Remove="wwwroot\books\cover\b9c991a4-7516-4342-a973-ac0c23b6bcea-living.jpg" />
+    <Content Remove="wwwroot\books\cover\d702c8b1-6a8b-428a-b7e7-8eb3645d0c07-b3.webp" />
+    <Content Remove="wwwroot\books\cover\de325776-e895-46d4-b177-d5b96708f52e-living.jpg" />
+    <Content Remove="wwwroot\books\cover\e89620e4-47e4-4064-aa7d-0f967ddee5fd-living.jpg" />
     <Content Remove="wwwroot\books\cover\f291fca9-ee03-437d-a467-422f105aba47b3.webp" />
+    <Content Remove="wwwroot\books\gallery\02118c25-8676-4792-982e-56399572cc05-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\0733c4a2-21b4-4a66-b90e-63b433768657-barefoot1.jpeg" />
+    <Content Remove="wwwroot\books\gallery\08c2593d-b829-419f-9cf3-833d0f7abd9a-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\0fd6d036-44d1-4efe-96c8-a8f149eb69af-g5.jpg" />
+    <Content Remove="wwwroot\books\gallery\13e30f95-9cef-42e3-899c-203005bbd7b3-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\1d37f4ca-e0d9-457d-aaf0-13eac16f2eb1-g7.jfif" />
+    <Content Remove="wwwroot\books\gallery\24d607d6-dfc6-44ee-a1bc-7f14b468d16e-Java-Platform-or-Language.jpg" />
+    <Content Remove="wwwroot\books\gallery\28b2aca3-761b-485d-8799-db3c214fd6d3-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\2c611216-f7ff-4cce-8b60-0c904b6b258b-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\3e97e1c9-5287-4182-9e66-447143dece0c-download.jfif" />
+    <Content Remove="wwwroot\books\gallery\3f90493a-9b6f-4b61-a638-bff6af2ab6ac-g3.jpg" />
+    <Content Remove="wwwroot\books\gallery\484709ba-f08d-4378-9072-2a6805c87831-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\4f3e3829-58bb-4ab1-85bd-5181b0ab9516-OIP.jfif" />
+    <Content Remove="wwwroot\books\gallery\54a710ab-30c5-4f8f-a4e5-83da7506adab-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\567e0e16-c1f7-45f8-89e3-ed7a5bb755d6-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\5de791bb-a9b4-437f-9e62-1b04f895fec7-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\69025b5e-9201-4642-a161-11798102a9db-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\6e32d097-466d-489b-88aa-844581184e30-g5.jpg" />
+    <Content Remove="wwwroot\books\gallery\8385d7be-c80a-4764-8cb8-127025da20c6-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\89007060-adae-426f-85f6-69d96e810143-g3.jfif" />
+    <Content Remove="wwwroot\books\gallery\8a12d236-7218-404b-938d-02aa5c1fecf5-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\919859bc-e6c0-4db7-9846-659144609bc3-Java-Platform-or-Language.jpg" />
+    <Content Remove="wwwroot\books\gallery\a035b5ff-3aba-439f-8bef-2be30eff3b94-download.jfif" />
+    <Content Remove="wwwroot\books\gallery\a0b0d026-91e1-49e6-9ea4-12d7810984dd-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\a5bb1c8c-713c-41cd-b272-95e399e8d944-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\b53b17fe-3611-4c6a-a23e-eb56684fffb7-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\b75536e2-3dab-4b00-93cc-07593b0059da-g3.jpg" />
+    <Content Remove="wwwroot\books\gallery\c1a1abb9-b366-433b-8e16-7ddc5dec2819-g3.jpg" />
+    <Content Remove="wwwroot\books\gallery\d2b36462-aa76-4e0d-b5ae-452e40cc885d-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\d8573a52-b88f-4beb-8763-2da8c8c3bb55-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\daf1b458-a2bb-4b45-88cd-43e29ea9a358-living.jpg" />
+    <Content Remove="wwwroot\books\gallery\e031d2ac-eaa9-4cfa-9753-deec2d78412c-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\e38b105f-c75b-4d4c-a7d3-54dc01c8525a-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\e55366ec-1f88-4176-bc9d-aa05a9bf4cdc-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\ebb5b333-8b0e-422d-a899-27a1f078d1ea-g2.jfif" />
+    <Content Remove="wwwroot\books\gallery\efd3a440-f108-438c-87d7-1f54f2764eb5-OIP.jfif" />
+    <Content Remove="wwwroot\books\gallery\f22737f3-390c-4bde-848a-59a555c6928f-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\f790be92-96b1-4c62-baea-b53878be0b57-g3.jpg" />
+    <Content Remove="wwwroot\books\gallery\fd548472-7470-4cd1-9dc0-e7f3bb0464da-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\fe522ff2-4f8c-473f-a4be-e7bce027848b-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\ff3bb958-3e13-4d14-b580-98a9faf66955-spirit.jpg" />
+    <Content Remove="wwwroot\books\gallery\ffb8114b-5168-4c11-a3e6-c394c5fd8081-selfand spirit.jpg" />
+    <Content Remove="wwwroot\books\pdf\08e362bb-2f5a-49f6-ad54-75c46eb14897-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\4b007f4a-bbce-4884-b2d2-7bd4e0b93b43-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\4bd0cb0e-268b-4a1a-8b04-8c873984cfe0-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\7291555e-4f58-41e0-846e-005edd015f39-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\977a6743-6a59-49b9-927a-139fbf3a4688-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\9a1d6ae9-4b0a-4c32-8b04-bd5da42bc2d2-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\c3e6c75f-2b53-4ffc-bd56-a91e4ce3a99a-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\cb4bbbe8-e09c-40d1-8223-10622e6d2b2e-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
+    <Content Remove="wwwroot\books\pdf\f9ef3c8a-5256-493b-8f94-eb4b66615a55-Living in the Light_ A guide to personal transformation %28 PDFDrive %29.pdf" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.113" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
@@ -48,6 +114,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\books\cover\" />
     <Folder Include="wwwroot\books\gallery\" />
+    <Folder Include="wwwroot\books\pdf\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

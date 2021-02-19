@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace BookStore.Repository
 {
-    
-    public class LanguageRepository
+
+    public class LanguageRepository : ILanguageRepository
     {
         private readonly BookStoreContext _context = null;
         public LanguageRepository(BookStoreContext context)
@@ -22,8 +22,8 @@ namespace BookStore.Repository
             {
                 Id = x.Id,
                 Name = x.Name,
-                des = x.des
-            }).ToListAsync(); 
+                Des = x.des
+            }).ToListAsync();
         }
 
     }

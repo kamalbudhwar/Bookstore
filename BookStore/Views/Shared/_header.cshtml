@@ -1,0 +1,46 @@
+﻿@inject BookStore.Repository.IBookRepository _bookrepo
+@using Microsoft.Extensions.Configuration 
+@inject Microsoft.Extensions.Options.IOptionsSnapshot<NewBookAlertConfig> _newBookAlertConfig
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img height="30" width="30" src="~/images/logo.jpg" asp-append-version="true" />
+            @_bookrepo.GetAppName()
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+               <partial name="_LogInInfo"/>
+            </ul>
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="ContactUs">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Book" asp-action="GetAllBooks">All Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Book" asp-action="AddNewBook">Add New Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-controller="Book" asp-action="Motivation">Motivation</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @if (_newBookAlertConfig.Value.DisplayNewBookAlert)
+    {
+        <div class="alert alert-info" role="alert">
+            @(_newBookAlertConfig.Value.BookName)
+        </div>
+    }
+
+</header>

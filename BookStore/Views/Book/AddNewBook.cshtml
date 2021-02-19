@@ -1,4 +1,5 @@
 ﻿@model BookModel;
+@inject BookStore.Repository.ILanguageRepository _languageRepository
 
 <div class="container">
     <h3>Add New Book</h3>
@@ -33,11 +34,11 @@
         <div class="form-group">
             <label asp-for="Category"></label>
             <input asp-for="Category" class="form-control" />
-            <span asp-validation-for="Category" class="text-danger"></span>
+            <span asp-validation-for="Category" class="text-danger"></span>.
         </div>
         <div class="form-group">
             <label asp-for="LanguageId"></label>
-            <select asp-for="LanguageId" class="form-control" asp-items="@ViewBag.languages">
+            <select asp-for="LanguageId" class="form-control" asp-items="(await _languageRepository.GetLanguages()).Select(x=>new SelectListItem() {Text= x.Name,Value=x.Id.ToString()})">
                 <option value="">Please enter the written Language</option>
             </select>
             <span asp-validation-for="Language" class="text-danger"></span>
@@ -67,6 +68,14 @@
                 <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
             <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BookPdf"></label>
+            <div class="custom-file">
+                <input asp-for="BookPdf" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="BookPdf" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Add Book" />
