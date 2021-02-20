@@ -48,7 +48,7 @@ namespace BookStore
             services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService,EmailService>();
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<BookStoreContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<BookStoreContext>().AddDefaultTokenProviders();
             services.Configure<SMTPConfigModel>(_configuration.GetSection("SMTPConfig"));
             services.Configure<NewBookAlertConfig>(_configuration.GetSection("NewBookAlert"));
             services.Configure<IdentityOptions>(options =>

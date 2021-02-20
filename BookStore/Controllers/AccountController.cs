@@ -37,7 +37,9 @@ namespace BookStore.Controllers
                     }
                     return View(signUpUserModel);
                 }
+                
                 ModelState.Clear();
+                RedirectToAction("confirm-email", new { email = signUpUserModel.Email });
             }
             return View();
         }
@@ -108,6 +110,50 @@ namespace BookStore.Controllers
                 }
             }
             return View(model);
+        }
+
+ 
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(String uid,String token,String email)
+        {
+            EmailConfirmModel emailConfirmModel = new EmailConfirmModel
+            {
+                Email = email
+            };
+            if (!String.IsNullOrEmpty(uid) && !String.IsNullOrEmpty(token))
+            {
+                token = token.Replace(' ','+');
+               var result= await _accountRepository.ConfirmEmailAsync(uid, token);
+                if (result.Succeeded)
+                {
+                    emailConfirmModel.EmailVerified = true;
+                }
+            }
+            return View();
+        }
+
+        [HttpPost("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(EmailConfirmModel model)
+        {
+            var user= await _accountRepository.GetUserByEmailId(model.Email);
+            if (user != null)
+            {
+                if (user.EmailConfirmed)
+                {
+                    model.EmailVerified = true;
+                    return View(model);
+                }
+                await _accountRepository.GenerateTokenToConfirmEmailAsync(user);
+                model.EmailSent = true;
+                ModelState.Clear();
+            }
+            else
+            {
+                ModelState.AddModelError("","User is not found with this specific ID");
+                
+            }
+            return View(model);
+
         }
     }
 }

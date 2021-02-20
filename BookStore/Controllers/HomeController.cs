@@ -35,16 +35,16 @@ namespace BookStore.Controllers
             // var Result = _configuration["AppName"];
             //var msg = _messageRepository.GetName();
 
-            UserEmailOptions userEmailOptions = new UserEmailOptions
-            {
-                ToEmails = new List<string> { "test@gmail.com" },
-                Placeholders = new List<KeyValuePair<string, string>>()
-                {
-                    new KeyValuePair<string, string>("{{Guest}}","Pinku"){ }
-                }
+        //    UserEmailOptions userEmailOptions = new UserEmailOptions
+         //   {
+         //       ToEmails = new List<string> { "test@gmail.com" },
+         //       Placeholders = new List<KeyValuePair<string, string>>()
+         //       {
+         //           new KeyValuePair<string, string>("{{Guest}}","Pinku"){ }
+         //       }
                 
-            };
-            await _emailService.SendTestEmail(userEmailOptions);
+         //   };
+          //  await _emailService.SendTestEmail(userEmailOptions);
              // var userId = _userService.GetUserId();
             //var isLoogedIn = _userService.isAuthenticated();
             Title = "Home";

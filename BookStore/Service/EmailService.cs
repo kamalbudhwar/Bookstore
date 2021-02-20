@@ -27,6 +27,13 @@ namespace BookStore.Service
             userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("TestEmail"),userEmailOptions.Placeholders);
             await SendEmail(userEmailOptions);
         }
+
+        public async Task SendEmailForEmailConfirmation(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = "Congratulations for joining Bookstore App";
+            userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("ConfirmEmail"), userEmailOptions.Placeholders);
+            await SendEmail(userEmailOptions);
+        }
         private async Task SendEmail(UserEmailOptions userEmailOptions)
         {
             MailMessage mail = new MailMessage
