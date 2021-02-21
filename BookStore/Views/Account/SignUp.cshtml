@@ -30,6 +30,10 @@
     <div class="container">
         <h4>Sign Up</h4>
         <hr />
+        @if (Model?.sentConfirmMail==true)
+        {
+            <div class="alert alert-success" role="alert"><p>Email has been to the entered email address. Please Check your mail to confirm the email account. </p></div>
+        }
         <div class="row">
             <div class="col-md-4">
                 <form asp-action="SignUp">
@@ -65,7 +69,7 @@
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Sign Up" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
@@ -74,7 +78,7 @@
             </div>
         </div>
         <div>
-           <p>Click <a asp-action="login" asp-controller="Account">here</a> to LogIn</p>
+            <p>Click <a asp-action="login" asp-controller="Account">here</a> to LogIn</p>
         </div>
     </div>
 

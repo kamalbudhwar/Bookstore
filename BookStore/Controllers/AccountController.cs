@@ -1,5 +1,6 @@
 ﻿using BookStore.Models;
 using BookStore.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,20 +29,19 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var result =await _accountRepository.CreateUserAsync(signUpUserModel);
                 if (!result.Succeeded)
                 {
                     foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
-                    }
-                    return View(signUpUserModel);
+                    };
                 }
-                
                 ModelState.Clear();
-                RedirectToAction("confirm-email", new { email = signUpUserModel.Email });
+                //RedirectToAction("confirm-email", new { email = signUpUserModel.Email });
             }
-            return View();
+            return View(signUpUserModel);
         }
 
         [Route("login")]
@@ -129,7 +129,7 @@ namespace BookStore.Controllers
                     emailConfirmModel.EmailVerified = true;
                 }
             }
-            return View();
+            return View(emailConfirmModel);
         }
 
         [HttpPost("confirm-email")]
@@ -155,6 +155,62 @@ namespace BookStore.Controllers
             return View(model);
 
         }
+
+        [AllowAnonymous, HttpGet]
+        public async Task<IActionResult> ForgotPassword()
+        {
+            return View();
+        }
+
+        [AllowAnonymous, HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _accountRepository.GetUserByEmailId(model.Email);
+                if (user != null)
+                {
+                    await _accountRepository.GenerateTokenForForgetPasswordAsync(user);
+                    ModelState.Clear();
+                    model.EmailSent = true;
+                }
+            }
+            return View(model);
+        }
+        [AllowAnonymous, HttpGet("reset-password")]
+        public async Task<IActionResult> ResetPassword(string uid, string token)
+        {
+            ResetPasswordModel model = new ResetPasswordModel
+            {
+                UserId = uid,
+                Token = token
+            };
+            return View(model);
+        }
+        [AllowAnonymous, HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Token = model.Token.Replace(' ', '+');
+                var result = await _accountRepository.ResetPasswordAsync(model);
+                if (result.Succeeded)
+                {
+                    ModelState.Clear();
+                    model.isSuccess = true;
+                    return View(model);
+                }
+                else
+                {
+                    foreach(var err in result.Errors)
+                    {
+                        ModelState.AddModelError("", err.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
+
     }
 }
                       

@@ -4,19 +4,20 @@
         <div class="col-md-4">
             @if (Model.EmailVerified == true)
             {
-                <div class="alert alert-success" role="alert">
-                    <p>Your Email Has been Verified Successfully!!!</p>
-                </div>
+            <div class="alert alert-success" role="alert">
+                <p>Your Email Has been Verified Successfully!!!</p>
+                <a asp-action="login" asp-controller="Account">LogIn</a>
+            </div>
             }
             else
             {
-                @if (Model.EmailSent)
+                @if (Model?.EmailSent==true)
                 {
                     <p>Email sent on your registered email-id</p>
                 }
                 else
                 {
-                    if (Model.EmailVerified)
+                    if (Model?.EmailVerified==true)
                     {
                         <div class="text-success">The Email has been Verified Successfully. You can login using registerd username and password.</div>
                     }

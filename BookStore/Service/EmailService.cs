@@ -34,6 +34,12 @@ namespace BookStore.Service
             userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("ConfirmEmail"), userEmailOptions.Placeholders);
             await SendEmail(userEmailOptions);
         }
+        public async Task SendEmailForForgotPassword(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = "Forgot Password? Do not worry!!";
+            userEmailOptions.Body = UpdatePlaceHolders(GetEmailBody("ForgotPasswordEmail"), userEmailOptions.Placeholders);
+            await SendEmail(userEmailOptions);
+        }
         private async Task SendEmail(UserEmailOptions userEmailOptions)
         {
             MailMessage mail = new MailMessage

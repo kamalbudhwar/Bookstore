@@ -29,5 +29,7 @@ namespace BookStore.Models
         [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
         public String ConfirmPassword { get; set; }
+
+        public bool sentConfirmMail { get; set; }
     }
 }
