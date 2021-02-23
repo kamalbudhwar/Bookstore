@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\Financial\Views\Home\Graph.cshtml" />
     <Content Remove="Views\Home\Component.razor" />
     <Content Remove="Views\Home\Component1.razor" />
     <Content Remove="Views\Home\Index1.cshtml" />
@@ -112,6 +113,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Financial\Data\" />
+    <Folder Include="Areas\Financial\Models\" />
     <Folder Include="wwwroot\books\cover\" />
     <Folder Include="wwwroot\books\gallery\" />
     <Folder Include="wwwroot\books\pdf\" />

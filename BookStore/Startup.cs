@@ -59,11 +59,19 @@ namespace BookStore
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.SignIn.RequireConfirmedEmail = true;
+                options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromSeconds(30);
+                options.Lockout.MaxFailedAccessAttempts = 3;
             });
             services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath=_configuration["ApplicatinPaths :Login"];
             });
+            services.Configure<DataProtectionTokenProviderOptions>(options=>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(12);
+            }
+                );
+
 
         }
 
@@ -83,7 +91,8 @@ namespace BookStore
             app.UseEndpoints(endpoints =>
             {
              endpoints.MapDefaultControllerRoute();
-            //endpoints.MapControllerRoute(name:"Default",pattern:"bookApp/{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute(name:"Default",pattern:"bookApp/{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute(name:"MyArea",pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             });
         }
         //PhysicalFileProvider())

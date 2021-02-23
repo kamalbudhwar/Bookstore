@@ -11,8 +11,10 @@ namespace BookStore.Controllers
 {
     public class AccountController : Controller
     {
+       
         private readonly IAccountRepository _accountRepository;
-
+      
+        
         public AccountController(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
@@ -43,15 +45,14 @@ namespace BookStore.Controllers
             }
             return View(signUpUserModel);
         }
-
         [Route("login")]
         public IActionResult LogIn()
         {
             return View();
         }
         
-        [Route("login")]
         [HttpPost]
+        [Route("login")]
         public async Task<IActionResult> LogIn(SignInModel signInModel,String returnUrl)
         {
             if (ModelState.IsValid)
@@ -68,6 +69,10 @@ namespace BookStore.Controllers
                 if (result.IsNotAllowed)
                 {
                     ModelState.AddModelError("", "Not allowed");
+                }
+                else if (result.IsLockedOut)
+                {
+                    ModelState.AddModelError("", "Account Blocked due to incorrect crendentials.Please try again later");
                 }
                 else
                 {
